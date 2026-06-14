@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0f0f0f;
+  font-size: 16px;
+}
+
+/* Scales font size naturally with device width */
+@media (max-width: 360px) {
+  html { font-size: 14px; }
+}
+@media (min-width: 361px) and (max-width: 480px) {
+  html { font-size: 15px; }
+}
+@media (min-width: 481px) {
+  html { font-size: 16px; }
+}
+
+.frame-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 100dvh; /* dynamic viewport height — respects mobile browser chrome */
+  overflow: hidden;
+}
+
+iframe#appFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #0f0f0f;
+}
+
+/* This block covers and hides the "Edit with Base44" banner */
+.bottom-blocker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* tall enough to cover the banner */
+  background: #0f0f0f;
+  z-index: 9999;
+  /* Safe area padding for phones with home indicator (iPhone, etc.) */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
